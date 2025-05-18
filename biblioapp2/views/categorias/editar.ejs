@@ -1,0 +1,61 @@
+<%- include('../layouts/base') -%>
+
+<div class="container mt-4 animate__animated animate__fadeIn">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card border-primary shadow-lg">
+        <div class="card-header bg-gradient-primary text-white">
+          <h4 class="mb-0">
+            <i class="bi bi-pencil-square me-2"></i>Editar Categoría #<%= categoria.id_category %>
+          </h4>
+        </div>
+        
+        <div class="card-body">
+          <form id="form-editar" action="/categorias/actualizar/<%= categoria.id_category %>" method="POST" novalidate>
+            <input type="hidden" name="_method" value="PUT">
+            
+            <div class="mb-4">
+              <label for="nombre" class="form-label fw-bold">Nombre de la categoría</label>
+              <input type="text" 
+                     class="form-control form-control-lg <%= locals.errors?.nombre ? 'is-invalid' : '' %>" 
+                     id="nombre" 
+                     name="nombre" 
+                     value="<%= categoria.name || '' %>"
+                     required
+                     minlength="3"
+                     maxlength="100">
+              
+              <% if (locals.errors?.nombre) { %>
+                <div class="invalid-feedback">
+                  <i class="bi bi-exclamation-circle-fill"></i> <%= errors.nombre %>
+                </div>
+              <% } else { %>
+                <div class="form-text">Mínimo 3 caracteres, máximo 100</div>
+              <% } %>
+            </div>
+            
+            <div class="d-flex justify-content-between mt-4">
+              <a href="/categorias" class="btn btn-outline-secondary btn-lg">
+                <i class="bi bi-x-circle me-1"></i> Cancelar
+              </a>
+              <button type="submit" class="btn btn-primary btn-lg px-4">
+                <i class="bi bi-check2-circle me-1"></i> Actualizar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Validación del lado del cliente
+  document.getElementById('form-editar').addEventListener('submit', function(e) {
+    const nombre = document.getElementById('nombre').value.trim();
+    if (nombre.length < 3 || nombre.length > 100) {
+      e.preventDefault();
+      alert('El nombre debe tener entre 3 y 100 caracteres');
+    }
+  });
+</script>

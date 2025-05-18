@@ -1,0 +1,19 @@
+<h1>Editoriales</h1>
+<a href="/editoriales/nuevo" class="btn btn-primary mb-3">➕ Nueva Editorial</a>
+<table class="table table-striped">
+  <thead>
+    <tr><th>ID</th><th>Nombre</th><th>Acciones</th></tr>
+  </thead>
+  <tbody>
+    <% editoriales.forEach(e => { %>
+      <tr>
+        <td><%= e.id_publisher %></td>
+        <td><%= e.name %></td>
+        <td>
+          <a href="/editoriales/editar/<%= e.id_publisher %>" class="btn btn-warning btn-sm">✏️</a>
+          <a href="/editoriales/delete/<%= e.id_publisher %>" class="btn btn-danger btn-sm">🗑</a>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>

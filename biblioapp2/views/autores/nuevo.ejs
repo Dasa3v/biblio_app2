@@ -1,0 +1,8 @@
+<h1><%= autor.id_author ? 'Editar Autor' : 'Nuevo Autor' %></h1>
+<form action="<%= autor.id_author ? '/autores/editar/' + autor.id_author : '/autores/nuevo' %>" method="POST">
+  <div class="mb-3">
+    <label>Nombre</label>
+    <input type="text" name="name" class="form-control" value="<%= autor.name || '' %>" required>
+  </div>
+  <button class="btn btn-success" type="submit">Guardar</button>
+</form>

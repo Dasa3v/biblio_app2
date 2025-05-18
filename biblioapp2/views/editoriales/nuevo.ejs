@@ -1,0 +1,8 @@
+<h1><%= editorial.id_publisher ? 'Editar Editorial' : 'Nueva Editorial' %></h1>
+<form action="<%= editorial.id_publisher ? '/editoriales/editar/' + editorial.id_publisher : '/editoriales/nuevo' %>" method="POST">
+  <div class="mb-3">
+    <label>Nombre</label>
+    <input type="text" name="name" class="form-control" value="<%= editorial.name || '' %>" required>
+  </div>
+  <button class="btn btn-success" type="submit">Guardar</button>
+</form>

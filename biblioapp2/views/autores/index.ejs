@@ -1,0 +1,19 @@
+<h1>Autores</h1>
+<a href="/autores/nuevo" class="btn btn-primary mb-3">➕ Nuevo Autor</a>
+<table class="table table-striped">
+  <thead>
+    <tr><th>ID</th><th>Nombre</th><th>Acciones</th></tr>
+  </thead>
+  <tbody>
+    <% autores.forEach(a => { %>
+      <tr>
+        <td><%= a.id_author %></td>
+        <td><%= a.name %></td>
+        <td>
+          <a href="/autores/editar/<%= a.id_author %>" class="btn btn-warning btn-sm">✏️</a>
+          <a href="/autores/delete/<%= a.id_author %>" class="btn btn-danger btn-sm">🗑</a>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
