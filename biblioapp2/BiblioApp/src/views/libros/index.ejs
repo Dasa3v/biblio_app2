@@ -1,0 +1,42 @@
+<!-- carpeta: views/libros, archivo: index.ejs -->
+<%- include('../partials/header') %>
+<div class="container mt-4">
+  <h2>Libros</h2>
+  <div>
+      <a href="/libros/new" class="btn btn-primary">Nuevo Libro</a>
+      <a href="/libros/papelera" class="btn btn-secondary ms-2">Papelera</a>
+    </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Autor</th>
+        <th>Categoría</th>
+        <th>Año</th>
+        <th style="width: 160px;">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (libros.length === 0) { %>
+        <tr>
+          <td colspan="5" class="text-center">No hay libros registrados.</td>
+        </tr>
+      <% } %>
+      <% libros.forEach(libro => { %>
+        <tr>
+          <td><%= libro.titulo %></td>
+          <td><%= libro.autor %></td>
+          <td><%= libro.categoria %></td>
+          <td><%= libro.anio %></td>
+          <td>
+            <a href="/libros/<%= libro.id %>/edit" class="btn btn-warning btn-sm">Editar</a>
+            <form action="/libros/<%= libro.id %>/delete" method="POST" class="d-inline" onsubmit="return confirm('¿Eliminar este libro?');">
+              <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+<%- include('../partials/footer') %>
