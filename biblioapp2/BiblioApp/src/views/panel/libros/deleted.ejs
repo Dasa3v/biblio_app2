@@ -1,0 +1,47 @@
+<!-- carpeta: views/libros, archivo: deleted.ejs -->
+<%- include('../partials/header') %>
+<div class="container mt-4">
+  <h2>Backup de Libros</h2>
+  <div class="card">
+    <div class="card-header bg-dark text-white">
+      Backup de Libros
+    </div>
+    <div class="card-body">
+      <form class="mb-3">
+        <input type="text" class="form-control" placeholder="Buscar libro por título o autor..." disabled>
+      </form>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Categoría</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (libros.length === 0) { %>
+            <tr>
+              <td colspan="5" class="text-center">No hay libros en la papelera.</td>
+            </tr>
+          <% } %>
+          <% libros.forEach((libro, i) => { %>
+            <tr>
+              <td><%= i + 1 %></td>
+              <td><%= libro.titulo %></td>
+              <td><%= libro.autor %></td>
+              <td><%= libro.categoria %></td>
+              <td>
+                <form action="/libros/<%= libro.id %>/restore" method="POST" class="d-inline">
+                  <button type="submit" class="btn btn-success btn-sm">Restaurar</button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<%- include('../partials/footer') %>
