@@ -1,0 +1,33 @@
+<%- include('../partials/header') %>
+<div class="container mt-4">
+  <h2>Préstamos</h2>
+  <a href="/prestamos/nuevo" class="btn btn-primary mb-3">Nuevo Préstamo</a>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Libro</th>
+        <th>Usuario</th>
+        <th>Fecha Préstamo</th>
+        <th>Fecha Entrega</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% prestamos.forEach(prestamo => { %>
+        <tr>
+          <td><%= prestamo.libro %></td>
+          <td><%= prestamo.usuario %></td>
+          <td><%= prestamo.fecha_prestamo %></td>
+          <td><%= prestamo.fecha_entrega %></td>
+          <td>
+            <a href="/prestamos/<%= prestamo.id %>/editar" class="btn btn-sm btn-warning">Editar</a>
+            <form action="/prestamos/<%= prestamo.id %>/eliminar" method="POST" style="display:inline;">
+              <button class="btn btn-sm btn-danger" onclick="return confirm('¿Eliminar préstamo?')">Eliminar</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+<%- include('../partials/footer') %>

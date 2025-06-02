@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+<div class="container mt-4">
+  <h2>Editar Préstamo</h2>
+  <form action="/prestamos/<%= prestamo.id %>/editar" method="POST">
+    <div class="mb-3">
+      <label for="libro_id" class="form-label">Libro</label>
+      <select name="libro_id" id="libro_id" class="form-control" required>
+        <% libros.forEach(libro => { %>
+          <option value="<%= libro.id %>" <%= libro.id === prestamo.libro_id ? 'selected' : '' %>><%= libro.titulo %></option>
+        <% }) %>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="fecha_entrega" class="form-label">Fecha de Entrega</label>
+      <input type="date" name="fecha_entrega" id="fecha_entrega" class="form-control" value="<%= prestamo.fecha_entrega %>" required>
+    </div>
+    <button class="btn btn-primary">Guardar Cambios</button>
+  </form>
+</div>
+<%- include('../partials/footer') %>
