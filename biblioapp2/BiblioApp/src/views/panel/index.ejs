@@ -1,0 +1,100 @@
+<%- include('../partials/header') %>
+
+<!-- Estilo embebido -->
+<style>
+  body {
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    color: #f0f0f0;
+    font-family: 'Segoe UI', sans-serif;
+    padding-bottom: 80px;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #e0eaff;
+    text-shadow: 0 0 8px rgba(102,204,255,0.4);
+  }
+
+  .btn {
+    font-size: 1.1rem;
+    padding: 0.75rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 6px rgba(0,0,0,0.2);
+  }
+
+  .btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 12px rgba(66,165,245,0.4);
+  }
+
+  .btn-primary {
+    background-color: #1a73e8;
+    border: none;
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    background-color: #42a5f5;
+  }
+
+  .btn-success {
+    background-color: #2ecc71;
+    border: none;
+    color: #fff;
+  }
+
+  .btn-success:hover {
+    background-color: #58d68d;
+  }
+
+  .panel-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 2rem;
+    background: rgba(30, 45, 60, 0.75);
+    border-radius: 16px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+  }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(10, 20, 30, 0.8);
+    color: #ccc;
+    text-align: center;
+    padding: 0.8rem 0;
+    font-size: 0.9rem;
+    backdrop-filter: blur(5px);
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+</style>
+
+<!-- Contenido principal -->
+<div class="container mt-5 panel-container">
+  <h2>Panel de Control</h2>
+  <div class="row text-center">
+    <div class="col-md-6 col-lg-3">
+      <a href="/categorias" class="btn btn-primary w-100">Categorías</a>
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <a href="/autores" class="btn btn-primary w-100">Autores</a>
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <a href="/libros" class="btn btn-primary w-100">Libros</a>
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <a href="/editorial" class="btn btn-primary w-100">Editoriales</a>
+    </div>
+  </div>
+  <div class="row mt-4 text-center">
+    <div class="col-md-6 col-lg-3 offset-lg-4 offset-md-3">
+      <a href="/prestamos" class="btn btn-success w-100">Préstamos</a>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

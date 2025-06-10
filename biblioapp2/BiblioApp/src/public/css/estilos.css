@@ -1,0 +1,103 @@
+/* =======================
+   1) Fondo general y fuente
+   ======================= */
+   body {
+    /* imagen de fondo full-screen + overlay oscuro con gradiente */
+    background: 
+      linear-gradient(rgba(10,10,20,0.6), rgba(20,10,30,0.6)),
+      url('/src/public/img/fondo.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #e0e0e0;              /* texto claro */
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;           /* para que siempre ocupe pantalla */
+    padding-bottom: 80px;        /* espacio para footer */
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  /* =======================
+     2) Navbar oscura con neón
+     ======================= */
+  .navbar {
+    background: rgba(15,15,25,0.85) !important;  /* semitransparente */
+    border-bottom: 1px solid #333;
+  }
+  .navbar-brand, .nav-link {
+    color: #88f !important;      /* neón azul suave */
+    text-shadow: 0 0 8px #88f;
+  }
+  .nav-link:hover {
+    color: #ccf !important;
+    text-shadow: 0 0 12px #ccf;
+  }
+  
+  /* =======================
+     3) Grid de botones
+     ======================= */
+  .btn-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 2rem auto;           /* centrado */
+    padding: 0 1rem;
+  }
+  
+  /* =======================
+     4) Estilo de botones “futuristas”
+     ======================= */
+  .btn-future {
+    position: relative;
+    background: rgba(40,40,60,0.8);
+    color: #cff !important;
+    border: 2px solid #88f;
+    border-radius: 12px;
+    padding: 0.75rem 1.25rem;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 12px rgba(136,136,255,0.4);
+  }
+  .btn-future::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(136,136,255,0.5), transparent 70%);
+    transform: rotate(45deg);
+    transition: all 0.7s ease;
+  }
+  .btn-future:hover {
+    background: rgba(60,60,90,0.9);
+    box-shadow: 0 0 20px rgba(204,204,255,0.7);
+    transform: translateY(-3px);
+  }
+  .btn-future:hover::before {
+    top: -30%; left: -30%;
+    transform: rotate(25deg);
+  }
+  
+  /* =======================
+     5) Footer “glassmorphism”
+     ======================= */
+  footer {
+    position: fixed;
+    bottom: 0; left: 0;
+    width: 100%;
+    background: rgba(20,20,30,0.5);
+    backdrop-filter: blur(6px);
+    color: #bbb;
+    text-align: center;
+    padding: 0.75rem 0;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  
+  /* =======================
+     6) Modo oscuro reforzado (opcional toggle)
+     ======================= */
+  body.dark-mode {
+    /* podrías cambiar el overlay o colores aquí */
+  }
+  

@@ -1,0 +1,130 @@
+<%- include('../partials/header') %>
+
+<!-- Estilo embebido -->
+<style>
+  body {
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    color: #f0f0f0;
+    font-family: 'Segoe UI', sans-serif;
+    padding-bottom: 80px;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #e0eaff;
+    text-shadow: 0 0 8px rgba(102,204,255,0.4);
+  }
+
+  .container {
+    margin-top: 5rem;
+  }
+
+  .form-control {
+    background-color: #1e2b3a;
+    color: #ffffff;
+    border: 1px solid #4a90e2;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .form-control:focus {
+    box-shadow: 0 0 10px #4a90e2;
+    background-color: #263547;
+    border-color: #4a90e2;
+  }
+
+  label {
+    color: #cfd9ff;
+    margin-bottom: 0.5rem;
+  }
+
+  .btn-primary {
+    background-color: #1a73e8;
+    border: none;
+    padding: 0.6rem;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+
+  .btn-primary:hover {
+    background-color: #42a5f5;
+    box-shadow: 0 0 12px rgba(66, 165, 245, 0.6);
+  }
+
+  .alert {
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .alert-danger {
+    background-color: rgba(255, 80, 80, 0.15);
+    color: #ff6b6b;
+    border: 1px solid #ff6b6b;
+  }
+
+  .alert-success {
+    background-color: rgba(80, 255, 150, 0.1);
+    color: #8ef5c4;
+    border: 1px solid #66ffb2;
+  }
+
+  a {
+    color: #82b1ff;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(10, 20, 30, 0.8);
+    color: #ccc;
+    text-align: center;
+    padding: 0.8rem 0;
+    font-size: 0.9rem;
+    backdrop-filter: blur(5px);
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+</style>
+
+<!-- Contenido principal -->
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h2>Registrarse</h2>
+      <% if (error) { %>
+        <div class="alert alert-danger"><%= error %></div>
+      <% } %>
+      <% if (success) { %>
+        <div class="alert alert-success"><%= success %></div>
+      <% } %>
+      <form action="/auth/register" method="POST">
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="nombre" name="nombre" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Correo Electrónico</label>
+          <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Contraseña</label>
+          <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Registrarse</button>
+      </form>
+      <div class="text-center mt-3">
+        <a href="/auth/login">¿Ya tienes cuenta? Inicia sesión</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

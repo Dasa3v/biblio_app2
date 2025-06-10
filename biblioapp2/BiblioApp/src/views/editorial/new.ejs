@@ -1,0 +1,97 @@
+<%- include('../partials/header') %>
+<style>
+  body {
+    background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
+    color: #e0e0e0;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  h2 {
+    color: #e0eaff;
+    text-shadow: 0 0 6px rgba(102,204,255,0.4);
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-primary {
+    background-color: #1a73e8;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: #42a5f5;
+    box-shadow: 0 0 10px rgba(66,165,245,0.5);
+  }
+
+  .btn-warning {
+    background-color: #f1c40f;
+    border: none;
+    border-radius: 6px;
+    color: #1e1e1e;
+    font-weight: bold;
+  }
+
+  .btn-warning:hover {
+    background-color: #f39c12;
+    box-shadow: 0 0 10px rgba(241, 196, 15, 0.4);
+  }
+
+  .btn-danger {
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+  }
+
+  .btn-danger:hover {
+    background-color: #c0392b;
+    box-shadow: 0 0 10px rgba(231, 76, 60, 0.4);
+  }
+
+  .table {
+    background-color: rgba(30, 45, 60, 0.85);
+    color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.25);
+  }
+
+  .table th {
+    background-color: #1a1f2b;
+    color: #9ccaff;
+    text-align: center;
+  }
+
+  .table td {
+    background-color: rgba(36, 48, 60, 0.6);
+    color: #e0e0e0;
+  }
+
+  .table td form {
+    display: inline-block;
+  }
+
+  .btn-sm {
+    padding: 5px 10px;
+    font-size: 0.85rem;
+  }
+</style>
+<div class="container mt-4">
+  <h2>Nueva Editorial</h2>
+  <form action="/editorial/new" method="POST" class="mb-3">
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="nombre" name="nombre" required>
+    </div>
+    <div class="mb-3">
+      <label for="pais" class="form-label">País</label>
+      <input type="text" class="form-control" id="pais" name="pais" required>
+    </div>
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a href="/editorial" class="btn btn-secondary">Cancelar</a>
+  </form>
+</div>
+<%- include('../partials/footer') %>
